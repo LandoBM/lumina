@@ -2,6 +2,11 @@
   text-align: center;
 }
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -36,3 +41,5 @@
     transform: rotate(360deg);
   }
 }
+
+
