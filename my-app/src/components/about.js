@@ -4,7 +4,7 @@ import electricianImage from '../assets/IMG_8879.JPG'; // Adjust the path as nec
 
 const About = () => {
   return (
-    <div className="bg-white text-gray-800 px-4 md:px-10 py-16">
+    <div className="bg-white text-gray-800 px-4 md:px-10 py-16 pt-20">
       {/* Hero Section */}
       <div className="text-center mb-12">
         <h1 className="text-4xl md:text-5xl font-bold text-orange-600">About Lumina Electric</h1>
@@ -25,14 +25,14 @@ const About = () => {
         {/* Text Content */}
         <div>
           <p className="text-lg leading-relaxed">
-            At Lumina Electric, we don’t just fix wires—we empower lives. Our team of certified
-            electricians brings years of experience, cutting-edge tools, and a passion for reliable
+            At Lumina Electric, we don’t just fix wires we empower lives. Our team of certified
+            electricians bring years of experience, cutting-edge tools, and a passion for reliable
             service to every project. From emergency repairs to full electrical builds, we’re known
             for showing up on time, doing the job right, and standing behind our work.
             <br /><br />
             With a commitment to safety and sustainability, we help homes and businesses across
             the region stay lit, connected, and future-ready. Whether you're renovating, building,
-            or upgrading—Lumina Electric is your trusted partner for every spark that matters.
+            or upgrading. Lumina Electric is your trusted partner for every spark that matters.
           </p>
         </div>
       </div>

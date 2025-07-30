@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
-import logo from '../assets/2024-07-03.jpg'; // adjust the path if needed
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { Menu, X } from "lucide-react";
+import logo from "../assets/2024-07-03.jpg"; // adjust the path if needed
 
 const NavBar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -20,11 +20,39 @@ const NavBar = () => {
 
         {/* Desktop Menu */}
         <div className="hidden md:flex space-x-6">
-          <Link to="/" className="text-white hover:text-orange-500 transition">Home</Link>
-          <Link to="/about" className="text-white hover:text-orange-500 transition">About</Link>
-          <Link to="/services" className="text-white hover:text-orange-500 transition">Services</Link>
-          <Link to="/reviews" className="text-white hover:text-orange-500 transition">Reviews</Link>
-          <Link to="/contact" className="text-white hover:text-orange-500 transition">Contact</Link>
+          <Link to="/" className="text-white hover:text-orange-500 transition">
+            Home
+          </Link>
+          <Link
+            to="/about"
+            className="text-white hover:text-orange-500 transition"
+          >
+            About
+          </Link>
+          <Link
+            to="/services"
+            className="text-white hover:text-orange-500 transition"
+          >
+            Services
+          </Link>
+          <Link
+            to="/reviews"
+            className="text-white hover:text-orange-500 transition"
+          >
+            Reviews
+          </Link>
+          <Link
+            to="/contact"
+            className="text-white hover:text-orange-500 transition"
+          >
+            Contact
+          </Link>
+          <a
+            href="tel:1234567890"
+            className="hidden md:inline-block text-sm font-semibold text-orange-600 hover:text-orange-700 transition"
+          >
+            📞 (770)-560-2596
+          </a>
         </div>
 
         {/* Hamburger Menu Button */}
@@ -40,11 +68,47 @@ const NavBar = () => {
       {/* Mobile Menu */}
       {menuOpen && (
         <div className="md:hidden bg-black px-6 pb-4 space-y-3">
-          <Link to="/" className="block text-white hover:text-orange-500" onClick={() => setMenuOpen(false)}>Home</Link>
-          <Link to="/about" className="block text-white hover:text-orange-500" onClick={() => setMenuOpen(false)}>About</Link>
-          <Link to="/services" className="block text-white hover:text-orange-500" onClick={() => setMenuOpen(false)}>Services</Link>
-          <Link to="/reviews" className="block text-white hover:text-orange-500" onClick={() => setMenuOpen(false)}>Reviews</Link>
-          <Link to="/contact" className="block text-white hover:text-orange-500" onClick={() => setMenuOpen(false)}>Contact</Link>
+          <Link
+            to="/"
+            className="block text-white hover:text-orange-500"
+            onClick={() => setMenuOpen(false)}
+          >
+            Home
+          </Link>
+          <Link
+            to="/about"
+            className="block text-white hover:text-orange-500"
+            onClick={() => setMenuOpen(false)}
+          >
+            About
+          </Link>
+          <Link
+            to="/services"
+            className="block text-white hover:text-orange-500"
+            onClick={() => setMenuOpen(false)}
+          >
+            Services
+          </Link>
+          <Link
+            to="/reviews"
+            className="block text-white hover:text-orange-500"
+            onClick={() => setMenuOpen(false)}
+          >
+            Reviews
+          </Link>
+          <Link
+            to="/contact"
+            className="block text-white hover:text-orange-500"
+            onClick={() => setMenuOpen(false)}
+          >
+            Contact
+          </Link>
+          <a
+            href="tel:1234567890"
+            className="hidden md:inline-block text-sm font-semibold text-orange-600 hover:text-orange-700 transition"
+          >
+            📞 (770)-560-2596
+          </a>
         </div>
       )}
     </header>
@@ -52,4 +116,3 @@ const NavBar = () => {
 };
 
 export default NavBar;
-

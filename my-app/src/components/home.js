@@ -5,7 +5,7 @@ import heroImg from '../assets/2024-07-03.jpg'; // or a hero image of electricia
 
 const Home = () => {
   return (
-    <div className="pt-24">
+    <div className="pt-18">
       {/* Hero Section */}
       <section className="bg-black text-white py-20 text-center">
         <div className="max-w-4xl mx-auto px-4">

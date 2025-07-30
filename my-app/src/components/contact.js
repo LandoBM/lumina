@@ -1,92 +1,107 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useForm, ValidationError } from '@formspree/react';
+import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaClock } from 'react-icons/fa';
 
-const Contact = () => {
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
-  const [submitted, setSubmitted] = useState(false);
+export default function Contact() {
+  const [state, handleSubmit] = useForm("mdkddear");
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // You would typically send data to a backend here
-    console.log('Form submitted:', formData);
-    setSubmitted(true);
-    setFormData({ name: '', email: '', message: '' });
-  };
+  if (state.succeeded) {
+    return (
+      <div className="text-center py-20">
+        <h2 className="text-3xl font-semibold text-green-600">Message Sent!</h2>
+        <p className="mt-2 text-gray-700">Thanks for reaching out. We’ll respond shortly.</p>
+      </div>
+    );
+  }
 
   return (
-    <div className="pt-24">
-      {/* Hero Section */}
-      <section className="bg-gray-100 text-center py-16 px-4">
-        <h1 className="text-4xl font-bold text-gray-800 mb-4">Let’s Connect</h1>
-        <p className="text-lg text-gray-600 max-w-xl mx-auto">
-          Have a question, need a quote, or facing an urgent electrical issue? Lumina Electric is here to help.
-        </p>
-      </section>
-
-      {/* Contact Info & Form */}
-      <section className="py-16 px-6 bg-white max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-start">
-        {/* Left: Contact Info */}
-        <div className="space-y-6">
-          <h2 className="text-2xl font-bold text-gray-800">Get in Touch</h2>
-          <p className="text-gray-600">We usually respond within 1 business day.</p>
-          <div className="space-y-2 text-gray-700">
-            <p><strong>📞 Phone:</strong> <a href="tel:1234567890" className="text-orange-600 hover:underline">(770) 560-2596</a></p>
-            <p><strong>✉️ Email:</strong> <a href="mailto:info@luminaelectric.com" className="text-orange-600 hover:underline">info@luminaelectric.com</a></p>
-            <p><strong>📍 Address:</strong> Stonecrest, GA</p>
-            <p><strong>🕒 Hours:</strong> Mon–Fri: 8am–6pm | Emergencies: 24/7</p>
-          </div>
+    <div className="bg-gray-50 py-12 px-6 sm:px-12 lg:px-24 pt-20">
+      <div className="max-w-5xl mx-auto">
+        {/* Header Section */}
+        <div className="text-center mb-12">
+          <h2 className="text-4xl font-bold text-gray-900">Let’s Connect</h2>
+          <p className="mt-2 text-gray-600">
+            Have a question, need a quote, or facing an urgent electrical issue?<br />
+            Lumina Electric is here to help.
+          </p>
         </div>
 
-        {/* Right: Contact Form */}
-        <form onSubmit={handleSubmit} className="bg-gray-50 p-6 rounded-xl shadow space-y-4">
-          <div>
-            <label className="block font-medium text-gray-700">Name</label>
-            <input
-              type="text"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              required
-              className="w-full border rounded-lg px-4 py-2 mt-1 focus:outline-none focus:ring-2 focus:ring-orange-500"
-            />
+        {/* Contact Details + Form */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 bg-white p-8 rounded-xl shadow-lg">
+          {/* Left Side: Contact Info */}
+          <div className="space-y-4">
+            <h3 className="text-xl font-semibold text-gray-800">Get in Touch</h3>
+            <p className="text-gray-600">We usually respond within 1 business day.</p>
+
+            <p className="flex items-center gap-2">
+              <FaPhoneAlt className="text-gray-600" />
+              <span className="text-gray-700">Phone: <a href="tel:7705602596" className="text-orange-600 font-medium">(770) 560-2596</a></span>
+            </p>
+
+            <p className="flex items-center gap-2">
+              <FaEnvelope className="text-gray-600" />
+              <span className="text-gray-700">Email: <a href="mailto:info@luminaelectric.com" className="text-orange-600 font-medium">info@luminaelectric.com</a></span>
+            </p>
+
+            <p className="flex items-center gap-2">
+              <FaMapMarkerAlt className="text-gray-600" />
+              <span className="text-gray-700">Address: Stonecrest, GA</span>
+            </p>
+
+            <p className="flex items-center gap-2">
+              <FaClock className="text-gray-600" />
+              <span className="text-gray-700">Hours: Mon–Fri: 8am–6pm | Emergencies: 24/7</span>
+            </p>
           </div>
-          <div>
-            <label className="block font-medium text-gray-700">Email</label>
-            <input
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-              className="w-full border rounded-lg px-4 py-2 mt-1 focus:outline-none focus:ring-2 focus:ring-orange-500"
-            />
-          </div>
-          <div>
-            <label className="block font-medium text-gray-700">Message</label>
-            <textarea
-              name="message"
-              rows="4"
-              value={formData.message}
-              onChange={handleChange}
-              required
-              className="w-full border rounded-lg px-4 py-2 mt-1 focus:outline-none focus:ring-2 focus:ring-orange-500"
-            />
-          </div>
-          <button
-            type="submit"
-            className="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-6 py-2 rounded-lg shadow"
-          >
-            Send Message
-          </button>
-          {submitted && <p className="text-green-600 font-medium mt-2">✅ Thank you! We’ll be in touch soon.</p>}
-        </form>
-      </section>
+
+          {/* Right Side: Form */}
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <div>
+              <input
+                id="name"
+                type="text"
+                name="name"
+                required
+                placeholder="Your Name"
+                className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-orange-500 focus:border-orange-500"
+              />
+            </div>
+
+            <div>
+              <input
+                id="email"
+                type="email"
+                name="email"
+                required
+                placeholder="Your Email"
+                className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-orange-500 focus:border-orange-500"
+              />
+              <ValidationError prefix="Email" field="email" errors={state.errors} />
+            </div>
+
+            <div>
+              <textarea
+                id="message"
+                name="message"
+                required
+                placeholder="Your Message"
+                rows="4"
+                className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-orange-500 focus:border-orange-500"
+              ></textarea>
+              <ValidationError prefix="Message" field="message" errors={state.errors} />
+            </div>
+
+            <button
+              type="submit"
+              disabled={state.submitting}
+              className="w-full bg-orange-600 text-white font-medium py-3 px-6 rounded-md hover:bg-orange-700 transition"
+            >
+              {state.submitting ? 'Sending...' : 'Send Message'}
+            </button>
+          </form>
+        </div>
+      </div>
     </div>
   );
-};
+}
 
-export default Contact;
